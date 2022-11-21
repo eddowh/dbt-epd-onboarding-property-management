@@ -1,0 +1,43 @@
+version: 2
+
+sources:
+  - name: property_management
+    description: Prop Mgmt database.
+    database: raw
+    schema: property_management
+    tables:
+      - name: properties
+        description: Raw properties data.
+        columns:
+          - name: id
+            description: Primary key for properties.
+            tests:
+              - unique
+              - not_null
+
+      - name: leases
+        description: Raw leases data.
+        columns:
+          - name: id
+            description: Primary key for leases.
+            tests:
+              - unique
+              - not_null
+
+      - name: units
+        description: Raw units data.
+        columns:
+          - name: id
+            description: Primary key for units.
+            tests:
+              - unique
+              - not_null
+
+      - name: rental_applications
+        description: Raw rental applications data.
+        columns:
+          - name: id
+            description: Primary key for rental applications.
+            tests:
+              - unique
+              - not_null
