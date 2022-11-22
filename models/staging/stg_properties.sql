@@ -1,1 +1,1 @@
-SELECT * FROM {{ source('property_management', 'properties') }};
+SELECT * FROM {{ source('property_management', 'properties') }}
