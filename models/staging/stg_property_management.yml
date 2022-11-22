@@ -1,0 +1,35 @@
+version: 2
+
+models:
+  - name: stg_properties
+    description: Staged property data from our property management app.
+    columns: 
+      - name: property_id
+        description: The primary key for properties.
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_units
+    description: Staged unit data from our property management app.
+    columns: 
+      - name: unit_id
+        description: Primary key for units.
+        tests:
+          - unique
+          - not_null
+      - name: status
+        description: Status of the property unit.
+        tests:
+          - accepted_values:
+              values:
+                - occupied
+                - rented
+                - vacant
+                - construction
+      - name: property_id
+        description: Foreign key to stg_properties.property_id.
+        tests:
+          - relationships:
+              to: ref('stg_properties')
+              field: property_id
