@@ -1,0 +1,19 @@
+version: 2
+
+exposures:
+
+  - name: weekly_property_management_metrics
+    type: dashboard
+    maturity: high
+    url: https://bi.tool/dashboards/1
+    description: >
+      Did someone say "exponential growth"?
+
+    depends_on:
+      - ref('fct_leases')
+      - ref('dim_properties')
+      - source('property_management', 'units')
+
+    owner:
+      name: Eddo from Metadata
+      email: eddo.hintoso@dbtlabs.com
