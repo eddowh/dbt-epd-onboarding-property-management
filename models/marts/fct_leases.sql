@@ -14,3 +14,4 @@ FROM
             ON ( lease.unit_id = unit.unit_id )
     INNER JOIN {{ ref('stg_rental_applications') }} rental_application
             ON ( lease.rental_application_id = rental_application.rental_application_id )
+{{ limit_data_in_dev('lease.end_date::date', time_unit='month', time_value=1) }}
