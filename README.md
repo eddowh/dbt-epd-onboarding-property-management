@@ -1,3 +1,13 @@
+# Installation
+
+```bash
+dbt deps
+```
+
+---
+
+_Original Boilerplate Description_
+
 Welcome to your new dbt project!
 
 ### Using the starter project
