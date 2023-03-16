@@ -34,3 +34,5 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   property_management:
     +materialized: table
+  snowflake_spend:
+    +enabled: true
