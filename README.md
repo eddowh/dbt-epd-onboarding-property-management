@@ -4,6 +4,14 @@
 dbt deps
 ```
 
+## Commands
+
+To run SQL from a macro, not in the context of a model:
+
+```bash
+dbt run-operation grant_select
+```
+
 ---
 
 _Original Boilerplate Description_
