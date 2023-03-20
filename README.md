@@ -54,6 +54,8 @@ $ dbt docs generate
 21:42:02  Catalog written to /Users/eddowh/codaz/dbt-epd-onboarding-property-management/target/catalog.json
 ```
 
+To confirm analyses are compiled but not run, execute `dbt compile` then `dbt run` and notice how analyses is not run.
+
 ---
 
 _Original Boilerplate Description_
