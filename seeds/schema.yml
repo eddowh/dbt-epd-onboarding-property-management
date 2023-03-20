@@ -1,0 +1,14 @@
+version: 2
+
+seeds:
+  - name: snowflake_contract_rates
+    description: >
+      Snowflake contract rates
+    columns:
+      - name: effective_date
+        description: The effective date of the contract.
+        tests:
+          - unique
+          - not_null
+      - name: rate
+        description: The contract rate, unit unknown.
