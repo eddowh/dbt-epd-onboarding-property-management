@@ -1,5 +1,27 @@
 version: 2
 
+models:
+  - name: dim_properties_sql
+    description: Dimensions of properties, written in SQL.
+    columns:
+      - name: property_id
+        description: The primary key for properties.
+        tests:
+          - unique
+          - not_null
+
+  - name: dim_properties_py
+    description: Dimensions of properties, written in Python.
+    config:
+      materialized: table
+      tags: ['python']
+    columns:
+      - name: property_id
+        description: The primary key for properties.
+        tests:
+          - unique
+          - not_null
+
 exposures:
 
   - name: weekly_property_management_metrics
@@ -11,7 +33,8 @@ exposures:
 
     depends_on:
       - ref('fct_leases')
-      - ref('dim_properties')
+      - ref('dim_properties_py')
+      - ref('dim_properties_sql')
       - source('property_management', 'units')
 
     owner:
