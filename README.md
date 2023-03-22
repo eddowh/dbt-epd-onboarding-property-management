@@ -58,6 +58,17 @@ To confirm analyses are compiled but not run, execute `dbt compile` then `dbt ru
 
 ---
 
+Learning Objectives
+
+- [ ] Setup metrics
+- [X] Setup exposures
+- [X] Create a Python model
+- [ ] Create a Python model (Advanced)
+- [ ] Implement an ephemeral model
+- [ ] Implement an incremental model
+
+---
+
 _Original Boilerplate Description_
 
 Welcome to your new dbt project!
