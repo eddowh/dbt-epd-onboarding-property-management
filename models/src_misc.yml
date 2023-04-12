@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: misc
+    description: Miscellaneous sources.
+    database: analytics
+    schema: dbt_ewhintoso
+    tables:
+      - name: orders

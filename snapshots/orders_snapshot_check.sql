@@ -9,6 +9,6 @@
     )
 }}
 
-select * from {{ ref('orders') }}
+select * from {{ source('misc', 'orders') }}
 
 {% endsnapshot %}
