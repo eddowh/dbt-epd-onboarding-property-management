@@ -81,6 +81,16 @@ Scenarios we tried where we built snapshots with **timestamp** and **check** str
 - Changing just the column `updated_at` would insert one to **timestamp**, and none to **check**.
   - This is because even if `status` didn't change, the **timestamp** table will record a change due to `updated_at`. On the contrary when the **check** table is not configured to check `updated_at` (which is what we tested with), it expectedly does not add any rows to **check** table because no rows have changed in `status`.
 
+### To setup an incremental table
+
+1. Make it so `order_events.csv` only has the first row.
+2. Run the command `dbt build -s +stg_misc_orders --full-refresh`
+  - This will insert 1 record.
+3. Add back the deleted records from `order_events.csv`
+4. Change the incremental WHERE clause to `WHERE event_timestamp >= '2019-02-01'::date` (so that it only attempts to join the records from the 2nd record onwards)
+5. Run the command `dbt build -s +stg_misc_orders`
+6. Observe that only the additional records are updated.
+
 ---
 
 Learning Objectives
@@ -90,7 +100,7 @@ Learning Objectives
 - [X] Create a Python model
 - [ ] Create a Python model (Advanced)
 - [ ] Implement an ephemeral model
-- [ ] Implement an incremental model
+- [X] Implement an incremental model
 - [X] Implement a snapshot table using timestamp strategy
 - [X] Implement a snapshot table using check strategy
 

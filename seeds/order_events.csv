@@ -1,0 +1,4 @@
+event_id,order_id,event,event_timestamp
+1,2,viewed,2019-01-01
+2,2,applied,2019-02-08
+3,2,completed,2019-02-09
