@@ -28,7 +28,7 @@ while read line; do
         mkdir -p $target_path_for_command
         if [[ $line == dbt\ source* ]]; then
             # Backup the target directory to target_bak
-            mv "$DEFAULT_TARGET_PATH" "$DEFAULT_TARGET_PATH_bak"
+            mv "$DEFAULT_TARGET_PATH" "$DEFAULT_TARGET_PATH""_bak"
 
             # Execute the command with the target flag
             echo "$line"
@@ -38,7 +38,7 @@ while read line; do
             mv "$DEFAULT_TARGET_PATH/"* "$target_path_for_command"
 
             # Rename target_bak to target
-            mv "$DEFAULT_TARGET_PATH_bak" "$DEFAULT_TARGET_PATH"
+            mv "$DEFAULT_TARGET_PATH""_bak" "$DEFAULT_TARGET_PATH"
         else
             # Execute the command with the target path flag
             echo "$line --target-path $target_path_for_command"

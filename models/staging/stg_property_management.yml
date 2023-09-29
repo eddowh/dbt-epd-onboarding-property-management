@@ -3,16 +3,28 @@ version: 2
 models:
   - name: stg_properties
     description: Staged property data from our property management app.
-    columns: 
+    latest_version: "2"
+    columns:
       - name: property_id
         description: The primary key for properties.
         tests:
           - unique
           - not_null
+      - name: correlation_id
+        tests:
+          - unique
+
+    versions:
+      - v: 1
+      - v: "2"
+      - v: 12
+        columns:
+          - include: all
+            exclude: [correlation_id]
 
   - name: stg_units
     description: Staged unit data from our property management app.
-    columns: 
+    columns:
       - name: unit_id
         description: Primary key for units.
         tests:
